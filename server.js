@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const PORT = 4000;
+const PORT = process.env.PORT|| 4000;
 const http = require('http').Server(app);
 const cors = require('cors');
 
@@ -10,7 +10,7 @@ app.use(cors());
 
 const socketIO = require('socket.io')(http, {
   cors: {
-      origin: "https://cineparty.netlify.app/"
+      origin: ["http://localhost:3000","https://cineparty.netlify.app"]
   }
 });
 
