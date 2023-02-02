@@ -26,7 +26,9 @@ socketIO.on('connection', (socket) => {
   socket.on('link', (data) =>socket.broadcast.emit('link', data));
 
   socket.on('play/pause',(data)=>socket.broadcast.emit('command',data))
-  
+  socket.on('endCall',(data)=>{
+    console.log(data)
+    socket.broadcast.emit('endCall',data)})
   //Listens when a new user joins the server
   socket.on('newUser', (data) => {
     //Adds the new user to the list of users
